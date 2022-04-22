@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import styled from 'styled-components';
 import Nav from './components/Nav';
+import Tags from './components/Tags';
 
 
 const Wrapper = styled.div`
@@ -46,10 +47,6 @@ function App() {
       </Wrapper>
     </Router>
   );
-}
-
-function Tags() {
-  return (<h2>tag</h2>);
 }
 
 function Money() {
