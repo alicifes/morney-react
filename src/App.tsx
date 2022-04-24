@@ -8,9 +8,7 @@ import {
 import styled from 'styled-components';
 import Nav from './components/Nav';
 import Tags from './components/Tags';
-import x from 'icon/labels.svg'
 
-console.log(x);
 
 
 const Wrapper = styled.div`
