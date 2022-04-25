@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
 import React from 'react';
+import {Link} from 'react-router-dom';
 
-require('icon/labels.svg');
+require('icon/tags.svg');
 require('icon/money.svg');
 require('icon/statistics.svg');
 
@@ -29,28 +29,50 @@ const NavWrapper = styled.div`
   }
 `;
 
+const hashmap = {
+ tags:'标签页',
+  money:'记账页',
+  statistics:'统计页'
+}
+
+const element= [];
+
+for(const [item,value] of Object.entries(hashmap)){
+  element.push(
+    <li>
+      <svg className="icon">
+        <use xlinkHref={`#${item}`} />
+      </svg>
+      <Link to={`/${item}`}>{value}</Link>
+    </li>
+  )
+}
+console.log(element);
+
+
 const Nav = () => {
   return (
     <NavWrapper>
       <ul>
-        <li>
-          <svg className="icon">
-            <use xlinkHref="#labels"/>
-          </svg>
-          <Link to="/tags">标签页</Link>
-        </li>
-        <li>
-          <svg className="icon">
-            <use xlinkHref="#money"/>
-          </svg>
-          <Link to="/money">记账页</Link>
-        </li>
-        <li>
-          <svg className="icon">
-            <use xlinkHref="#statistics"/>
-          </svg>
-          <Link to="/statistics">统计页</Link>
-        </li>
+        {element}
+        {/*<li>*/}
+        {/*  <svg className="icon">*/}
+        {/*    <use xlinkHref="#tags"/>*/}
+        {/*  </svg>*/}
+        {/*  <Link to="/tags">标签页</Link>*/}
+        {/*</li>*/}
+        {/*<li>*/}
+        {/*  <svg className="icon">*/}
+        {/*    <use xlinkHref="#money"/>*/}
+        {/*  </svg>*/}
+        {/*  <Link to="/money">记账页</Link>*/}
+        {/*</li>*/}
+        {/*<li>*/}
+        {/*  <svg className="icon">*/}
+        {/*    <use xlinkHref="#statistics"/>*/}
+        {/*  </svg>*/}
+        {/*  <Link to="/statistics">统计页</Link>*/}
+        {/*</li>*/}
       </ul>
     </NavWrapper>
   );
