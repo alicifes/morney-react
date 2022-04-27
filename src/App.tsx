@@ -5,61 +5,33 @@ import {
   Route,
   Redirect
 } from 'react-router-dom';
-import styled from 'styled-components';
-import Nav from './components/Nav';
-import Tags from './components/Tags';
-
-
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-`;
-const Main = styled.div`
-  flex-grow: 1;
-  overflow: auto;
-`;
-
-
+import Nav from 'components/Nav';
+import Tags from 'views/Tags';
+import Money from 'views/Money';
+import Statistics from 'views/Statistics';
+import NoMatch from 'views/NoMatch';
 
 function App() {
   return (
     <Router>
-      <Wrapper>
-        <Main>
-          <Switch>
-            <Route exact path="/money">
-              <Money/>
-            </Route>
-            <Route exact path="/tags">
-              <Tags/>
-            </Route>
-            <Route exact path="/statistics">
-              <Statistics/>
-            </Route>
-            <Redirect exact from="/" to="/money"/>
-            <Route path="/*">
-              <NoMatch/>
-            </Route>
-          </Switch>
-        </Main>
-        <Nav />
-      </Wrapper>
+      <Switch>
+        <Route exact path="/money">
+          <Money/>
+        </Route>
+        <Route exact path="/tags">
+            <Tags/>
+        </Route>
+        <Route exact path="/statistics">
+            <Statistics/>
+        </Route>
+        <Redirect exact from="/" to="/money"/>
+        <Route path="/*">
+          <NoMatch/>
+        </Route>
+      </Switch>
+      <Nav/>
     </Router>
   );
-}
-
-function Money() {
-  return (<h1>Money</h1>);
-}
-
-function Statistics() {
-  return <h2>sta</h2>;
-}
-
-function NoMatch() {
-  return <div>no found</div>;
 }
 
 export default App;

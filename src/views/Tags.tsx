@@ -1,8 +1,10 @@
+import Layout from '../components/Layout';
+
 const Tags = ()=>{
   return(
-    <div>
+    <Layout>
      Tags11111
-    </div>
+    </Layout>
   )
 }
 
