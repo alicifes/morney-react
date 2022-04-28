@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Nav from './Nav';
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,6 +22,7 @@ const Layout = (props:Props)=>{
      <Main>
        {props.children}
      </Main>
+      <Nav/>
     </Wrapper>
   );
 }

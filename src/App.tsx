@@ -19,17 +19,16 @@ function App() {
           <Money/>
         </Route>
         <Route exact path="/tags">
-            <Tags/>
+          <Tags/>
         </Route>
         <Route exact path="/statistics">
-            <Statistics/>
+          <Statistics/>
         </Route>
         <Redirect exact from="/" to="/money"/>
         <Route path="/*">
           <NoMatch/>
         </Route>
       </Switch>
-      <Nav/>
     </Router>
   );
 }
