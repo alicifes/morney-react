@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const TagSection = styled.section`
   background: #ffffff;
   padding: 12px 16px;
-  >ul{
+  >ol{
     margin: 0 -12px;
     >li{
       background:#d9d9d9 ;
@@ -25,6 +25,24 @@ const TagSection = styled.section`
   }
 `
 const NoteSection = styled.section`
+  background: #f5f5f5;
+  font-size: 14px;
+  >label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    >span{
+      margin-right: 16px;
+      white-space: nowrap;
+    }
+    >input{
+      display: block;
+      height: 73px;
+      width: 100%;
+      border:none;
+      background: none;
+    }
+  }
 `
 
 const CategorySection = styled.section`
@@ -37,18 +55,18 @@ const Money= ()=> {
   return (
     <Layout>
       <TagSection>
-        <ul>
+        <ol>
           <li>衣</li>
           <li>食</li>
           <li>住</li>
           <li>行</li>
-        </ul>
+        </ol>
         <button>添加标签</button>
       </TagSection>
       <NoteSection>
         <label>
           <span>备注</span>
-          <input type="text"/>
+          <input type="text" placeholder="在这里添加备注"/>
         </label>
       </NoteSection>
       <CategorySection>
