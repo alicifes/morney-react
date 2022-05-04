@@ -26,18 +26,18 @@ const TagSection = styled.section`
 `
 const NoteSection = styled.section`
   background: #f5f5f5;
+  padding: 0 16px;
   font-size: 14px;
   >label{
     display: flex;
     align-items: center;
-    justify-content: center;
     >span{
       margin-right: 16px;
       white-space: nowrap;
     }
     >input{
       display: block;
-      height: 73px;
+      height: 72px;
       width: 100%;
       border:none;
       background: none;
