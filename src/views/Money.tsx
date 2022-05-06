@@ -14,15 +14,7 @@ const MyLayout = styled(Layout)`
 const Money= ()=> {
   return (
     <MyLayout>
-      <TagSection>
-        <ol>
-          <li>衣</li>
-          <li>食</li>
-          <li>住</li>
-          <li>行</li>
-        </ol>
-        <button>添加标签</button>
-      </TagSection>
+      <TagSection />
       <NoteSection>
         <label>
           <span>备注</span>
