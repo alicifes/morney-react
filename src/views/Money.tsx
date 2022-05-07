@@ -15,12 +15,7 @@ const Money= ()=> {
   return (
     <MyLayout>
       <TagSection />
-      <NoteSection>
-        <label>
-          <span>备注</span>
-          <input type="text" placeholder="在这里添加备注"/>
-        </label>
-      </NoteSection>
+      <NoteSection />
       <CategorySection>
         <ol>
           <li className="selected">支出</li>
