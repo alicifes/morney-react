@@ -39,10 +39,10 @@ const Wrapper = styled.section`
 //非受控组件
 const NoteSection: React.FC = () => {
   const [note,setNote] = useState("");
-  const refInput =useRef<HTMLInputElement>(null)
+  const refInput =useRef<HTMLInputElement>(null);
   const onBlur = () => {
     if(refInput.current!==null){
-      setNote(refInput.current.value)
+      setNote(refInput.current.value);
       console.log(refInput.current.value);
     }
   }
