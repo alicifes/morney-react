@@ -29,9 +29,12 @@ const Wrapper = styled.section`
 
 //字符串的联合
 const CategorySection: React.FC = () => {
-  const [category,setCategory] = useState('-')
   const categoryMap = {"-":"支出","+":"收入"}
-  const [categoryList] = useState<("+"|"-")[]>(["+","-"])
+  type Keys= keyof typeof categoryMap
+  const [category,setCategory] = useState('-')
+  //字符串的联合
+  //const [categoryList] = useState<("+"|"-")[]>(["+","-"])
+  const [categoryList] = useState<Keys[]>(["+","-"])
   return <Wrapper>
     <ol>
       {
