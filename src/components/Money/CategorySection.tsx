@@ -1,20 +1,23 @@
 import styled from 'styled-components';
+import React, {useState} from 'react';
 
-const CategorySection = styled.section`
-  >ol{
+const Wrapper = styled.section`
+  > ol {
     display: flex;
     font-size: 24px;
     background: #C4C4C4;
-    >li{
+
+    > li {
       text-align: center;
       width: 50%;
-      padding:21px 0;
+      padding: 21px 0;
       position: relative;
-      &.selected::after{
+
+      &.selected::after {
         content: "";
         position: absolute;
         height: 3px;
-        background:#2d2d2d;
+        background: #2d2d2d;
         width: 100%;
         display: block;
         bottom: 0;
@@ -22,6 +25,24 @@ const CategorySection = styled.section`
       }
     }
   }
-`
+`;
 
-export {CategorySection}
+//字符串的联合
+const CategorySection: React.FC = () => {
+  const [category,setCategory] = useState('-')
+  const categoryMap = {"-":"支出","+":"收入"}
+  const [categoryList] = useState<("+"|"-")[]>(["+","-"])
+  return <Wrapper>
+    <ol>
+      {
+       categoryList.map(c=>
+         <li className={category===c?"selected":""} onClick={()=>setCategory(c)} key={c}>
+           {categoryMap[c]}
+         </li>
+       )
+      }
+    </ol>
+  </Wrapper>;
+};
+
+export {CategorySection};
