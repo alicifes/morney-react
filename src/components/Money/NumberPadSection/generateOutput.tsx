@@ -1,5 +1,5 @@
 
-const generateOutput = (text:string,output:string) => {
+const generateOutput = (text:string,output = '0') => {
   switch (text) {
     case '1':
     case '2':
@@ -24,7 +24,7 @@ const generateOutput = (text:string,output:string) => {
       if (output.length === 1) {
         return '0';
       } else {
-        return output.slice(0, -1);
+        return output.slice(0, -1)||'';
       }
     case '清空':
      return  '0';
