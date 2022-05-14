@@ -27,13 +27,16 @@ const Wrapper = styled.section`
   }
 
   > button {
-    background: none;
     border: none;
+    background: none;
     border-bottom: 1px solid #666666;
     padding: 0 4px;
     margin-top: 8px;
   }
 `;
+
+
+
 const TagSection: React.FC = (props) => {
   const [tags,setTags] = useState<string[]>(['衣', '食', '住', '行']);
   const [selectedTags,setSelectedTags] = useState<string[]>([])
