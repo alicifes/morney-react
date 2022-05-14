@@ -20,7 +20,8 @@ const Wrapper = styled.section`
       border-radius: 18px;
       font-size: 14px;
       margin: 8px 12px;
-      &.selected{
+
+      &.selected {
         background: red;
       }
     }
@@ -35,28 +36,34 @@ const Wrapper = styled.section`
   }
 `;
 
+type Props = {
+  selected: string[],
+  onChange: (selected: string[]) => void;
+}
 
-
-const TagSection: React.FC = (props) => {
-  const [tags,setTags] = useState<string[]>(['衣', '食', '住', '行']);
-  const [selectedTags,setSelectedTags] = useState<string[]>([])
+const TagSection: React.FC<Props> = (props) => {
+  const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
+  const selectedTags = props.selected
   const onAddTag = () => {
-    const tagName = window.prompt("请输入您想添加的标签")
-    if(tagName !== null){
-     setTags([...tags,tagName])
+    const tagName = window.prompt('请输入您想添加的标签');
+    if (tagName !== null) {
+      setTags([...tags, tagName]);
     }
   };
-  const onToggleTag = (tag:string)=>{
-    if(selectedTags.indexOf(tag)>=0){
-     setSelectedTags(selectedTags.filter(item=>item!==tag))
-    }else {
-     setSelectedTags([...selectedTags,tag])
+  const onToggleTag = (tag: string) => {
+    if (selectedTags.indexOf(tag) >= 0) {
+      props.onChange(selectedTags.filter(item => item!==tag));
+     //setSelectedTags(selectedTags.filter(item => item !== tag));
+    } else {
+      props.onChange([...selectedTags, tag])
+      ///setSelectedTags();
     }
-  }
+  };
   return <Wrapper>
     <ol>
       {tags.map(tag =>
-        <li key={tag} onClick={()=>onToggleTag(tag)} className={selectedTags.indexOf(tag)>=0?'selected':''}>{tag}</li>
+        <li key={tag} onClick={() => onToggleTag(tag)}
+            className={selectedTags.indexOf(tag) >= 0 ? 'selected' : ''}>{tag}</li>
       )}
     </ol>
     <button onClick={onAddTag}>添加标签</button>

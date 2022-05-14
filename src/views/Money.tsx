@@ -5,7 +5,6 @@ import {TagSection} from '../components/Money/TagSection';
 import {CategorySection} from '../components/Money/CategorySection';
 import {NoteSection} from '../components/Money/NoteSection';
 import {NumberPadSection} from '../components/Money/NumberPadSection';
-import tags from './Tags';
 
 const MyLayout = styled(Layout)`
   display: flex;
@@ -23,7 +22,7 @@ const Money= ()=> {
 
   return (
     <MyLayout>
-      <TagSection value={selected.tags} onChange={(tags)=>setSelected(
+      <TagSection selected={selected.tags} onChange={(tags)=>setSelected(
         {...selected,tags: tags}
       )}/>
       <NoteSection />
