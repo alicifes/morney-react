@@ -50,7 +50,6 @@ const NoteSection: React.FC<Props> = (props) => {
     if(refInput.current!==null){
       props.onChange(refInput.current.value)
       //setNote(refInput.current.value);
-      console.log(refInput.current.value);
     }
   }
   return <Wrapper>

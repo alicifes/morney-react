@@ -9,28 +9,30 @@ import {NumberPadSection} from '../components/Money/NumberPadSection';
 const MyLayout = styled(Layout)`
   display: flex;
   flex-direction: column;
-`
+`;
 
-type Category = '+'|'-'
-const Money= ()=> {
-  const [selected,setSelected] = useState({
-    tags:[] as string[],
-    note:'',
-    category:'-' as Category,
-    amount:0
-  })
+type Category = '+' | '-'
+const Money = () => {
+  const [selected, setSelected] = useState({
+    tags: [] as string[],
+    note: '',
+    category: '-' as Category,
+    amount: 0
+  });
 
   return (
     <MyLayout>
-      <TagSection value={selected.tags} onChange={(tags)=>setSelected(
-        {...selected,tags: tags}
+      <TagSection value={selected.tags} onChange={(tags) => setSelected(
+        {...selected, tags: tags}
       )}/>
-      <NoteSection value={selected.note} onChange={(note)=>setSelected(
-        {...selected,note: note})}/>
-      <CategorySection />
-      <NumberPadSection />
+      <NoteSection value={selected.note} onChange={(note) => setSelected(
+        {...selected, note: note})}/>
+      <CategorySection value={selected.category} onChange={(category:('+'|'-')) => setSelected(
+        {...selected, category: category}
+      )}/>
+      <NumberPadSection/>
     </MyLayout>
   );
-}
+};
 
-export default Money
+export default Money;

@@ -28,21 +28,26 @@ const Wrapper = styled.section`
 `;
 
 //字符串的联合
-const CategorySection: React.FC = () => {
-  const categoryMap = {"-":"支出","+":"收入"}
-  type Keys= keyof typeof categoryMap
-  const [category,setCategory] = useState('-')
+type Props = {
+  value: '+' | '-',
+  onChange: (category:('+' | '-'))=> void
+}
+const CategorySection: React.FC<Props> = (props) => {
+  const categoryMap = {'-': '支出', '+': '收入'};
+  type Keys = keyof typeof categoryMap;
+ const category = props.value;
+ // const [category, setCategory] = useState('-');
   //字符串的联合
   //const [categoryList] = useState<("+"|"-")[]>(["+","-"])
-  const [categoryList] = useState<Keys[]>(["+","-"])
+  const [categoryList] = useState<Keys[]>(['+', '-']);
   return <Wrapper>
     <ol>
       {
-       categoryList.map(c=>
-         <li className={category===c?"selected":""} onClick={()=>setCategory(c)} key={c}>
-           {categoryMap[c]}
-         </li>
-       )
+        categoryList.map(c =>
+          <li className={category === c ? 'selected' : ''} onClick={() => props.onChange(c)} key={c}>
+            {categoryMap[c]}
+          </li>
+        )
       }
     </ol>
   </Wrapper>;
