@@ -37,12 +37,19 @@ const Wrapper = styled.section`
 // }
 
 //非受控组件
-const NoteSection: React.FC = () => {
-  const [note,setNote] = useState("");
+type Props = {
+  value:string,
+  onChange:(note:string)=>void,
+}
+
+const NoteSection: React.FC<Props> = (props) => {
+  const note =props.value;
+  //const [note,setNote] = useState("");
   const refInput =useRef<HTMLInputElement>(null);
   const onBlur = () => {
     if(refInput.current!==null){
-      setNote(refInput.current.value);
+      props.onChange(refInput.current.value)
+      //setNote(refInput.current.value);
       console.log(refInput.current.value);
     }
   }
