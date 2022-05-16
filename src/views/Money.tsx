@@ -17,7 +17,7 @@ const Money = () => {
     tags: [] as string[],
     note: '',
     category: '-' as Category,
-    amount: 0
+    amount:'0'
   });
 
   return (
@@ -30,7 +30,9 @@ const Money = () => {
       <CategorySection value={selected.category} onChange={(category:('+'|'-')) => setSelected(
         {...selected, category: category}
       )}/>
-      <NumberPadSection/>
+      <NumberPadSection value={selected.amount} onChange={(amount:string)=>setSelected(
+        {...selected,amount:amount}
+      )}/>
     </MyLayout>
   );
 };
