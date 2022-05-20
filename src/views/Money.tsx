@@ -20,19 +20,21 @@ const Money = () => {
     amount: 0
   });
 
+  //可以使用type of获取值的类型
+  //Partial 表示值的部分类型
+  const onChange = (obj: Partial<typeof selected>) => {
+    setSelected({
+      ...selected,
+      ...obj
+    });
+  };
+
   return (
     <MyLayout>
-      <TagSection value={selected.tags} onChange={(tags) => setSelected(
-        {...selected, tags: tags}
-      )}/>
-      <NoteSection value={selected.note} onChange={(note) => setSelected(
-        {...selected, note: note})}/>
-      <CategorySection value={selected.category} onChange={(category: ('+' | '-')) => setSelected(
-        {...selected, category: category}
-      )}/>
-      <NumberPadSection value={selected.amount} onChange={(amount) => setSelected(
-        {...selected, amount: amount}
-      )} onOk={() => {}}/>
+      <TagSection value={selected.tags} onChange={tags => onChange({tags})}/>
+      <NoteSection value={selected.note} onChange={note => onChange({note})}/>
+      <CategorySection value={selected.category} onChange={category => onChange({category})}/>
+      <NumberPadSection value={selected.amount} onChange={amount => onChange({amount})} onOk={() => {}}/>
     </MyLayout>
   );
 };
