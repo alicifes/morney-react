@@ -30,7 +30,7 @@ const Wrapper = styled.section`
 //字符串的联合
 type Props = {
   value: '+' | '-',
-  onChange: (category:('+' | '-'))=> void
+  onChange: (value:('+' | '-'))=> void
 }
 const CategorySection: React.FC<Props> = (props) => {
   const categoryMap = {'-': '支出', '+': '收入'};

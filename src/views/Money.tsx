@@ -17,7 +17,7 @@ const Money = () => {
     tags: [] as string[],
     note: '',
     category: '-' as Category,
-    amount:'0'
+    amount: 0
   });
 
   return (
@@ -27,12 +27,12 @@ const Money = () => {
       )}/>
       <NoteSection value={selected.note} onChange={(note) => setSelected(
         {...selected, note: note})}/>
-      <CategorySection value={selected.category} onChange={(category:('+'|'-')) => setSelected(
+      <CategorySection value={selected.category} onChange={(category: ('+' | '-')) => setSelected(
         {...selected, category: category}
       )}/>
-      <NumberPadSection value={selected.amount} onChange={(amount:string)=>setSelected(
-        {...selected,amount:amount}
-      )}/>
+      <NumberPadSection value={selected.amount} onChange={(amount) => setSelected(
+        {...selected, amount: amount}
+      )} onOk={() => {}}/>
     </MyLayout>
   );
 };
