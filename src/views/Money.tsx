@@ -28,7 +28,6 @@ const Money = () => {
       ...obj
     });
   };
-
   return (
     <MyLayout>
       <TagSection value={selected.tags} onChange={tags => onChange({tags})}/>
