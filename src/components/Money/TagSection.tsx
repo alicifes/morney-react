@@ -63,7 +63,8 @@ const TagSection: React.FC<Props> = (props) => {
   };
   return <Wrapper>
     <ol>
-      {tags.map(tag =>
+      {
+        tags.map(tag =>
         <li key={tag} onClick={() => onToggleTag(tag)}
             className={selectedTags.indexOf(tag) >= 0 ? 'selected' : ''}>{tag}</li>
       )}

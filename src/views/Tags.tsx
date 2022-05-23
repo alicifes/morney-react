@@ -1,11 +1,20 @@
 import Layout from '../components/Layout';
+import {useTags} from '../useTags';
 
-const Tags = ()=>{
-  return(
+const Tags = () => {
+  const {tags, setTags} = useTags();
+  return (
     <Layout>
-     Tags11111
+      <ol>
+        {
+          tags.map(tag =>
+            <li key={tag}>
+              {tag}
+            </li>
+          )}
+      </ol>
     </Layout>
-  )
-}
+  );
+};
 
 export default Tags;
