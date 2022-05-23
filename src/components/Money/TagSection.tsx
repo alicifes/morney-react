@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import React, {useState} from 'react';
+import React from 'react';
+import {useTags} from '../../useTags';
 
 const Wrapper = styled.section`
   flex-grow: 1;
@@ -42,8 +43,9 @@ type Props = {
 }
 
 const TagSection: React.FC<Props> = (props) => {
-  const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
-  const selectedTags = props.value
+  //这里可以使用自定义hooks
+  const {tags, setTags} = useTags();
+  const selectedTags = props.value;
   const onAddTag = () => {
     const tagName = window.prompt('请输入您想添加的标签');
     if (tagName !== null) {
@@ -52,10 +54,10 @@ const TagSection: React.FC<Props> = (props) => {
   };
   const onToggleTag = (tag: string) => {
     if (selectedTags.indexOf(tag) >= 0) {
-      props.onChange(selectedTags.filter(item => item!==tag));
-     //setSelectedTags(selectedTags.filter(item => item !== tag));
+      props.onChange(selectedTags.filter(item => item !== tag));
+      //setSelectedTags(selectedTags.filter(item => item !== tag));
     } else {
-      props.onChange([...selectedTags, tag])
+      props.onChange([...selectedTags, tag]);
       ///setSelectedTags();
     }
   };
