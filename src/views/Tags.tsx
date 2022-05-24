@@ -9,7 +9,8 @@ const TagList = styled.ol`
   font-size: 16px;
 
   > li {
-    padding: 12px 16px 16px 0;
+    padding: 12px 16px 12px 0;
+    line-height: 20px;
     margin-left: 16px;
     border-bottom: 1px solid #bcbbc1;
     display: flex;
@@ -21,7 +22,7 @@ const TagList = styled.ol`
 const Button = styled.button`
   font-size: 18px;
   line-height: 22px;
-  padding: 9px 16px;
+  padding: 8px 12px;
   border:none;
   color: white;
   background: #767676;
@@ -46,9 +47,7 @@ const Tags = () => {
         {tags.map(tag =>
           <li key={tag}>
             <span className="oneLine">{tag}</span>
-            <div>
-              <Icon name="right"/>
-            </div>
+            <Icon name="right"/>
           </li>
         )}
       </TagList>
