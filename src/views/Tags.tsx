@@ -2,6 +2,8 @@ import Layout from '../components/Layout';
 import {useTags} from '../useTags';
 import styled from 'styled-components';
 import Icon from '../components/Icon';
+import {Link} from 'react-router-dom';
+import React from 'react';
 
 
 const TagList = styled.ol`
@@ -13,9 +15,11 @@ const TagList = styled.ol`
     line-height: 20px;
     margin-left: 16px;
     border-bottom: 1px solid #bcbbc1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    >a{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;  
+    }
   }
 `;
 
@@ -39,15 +43,17 @@ const Space = styled.div`
   height: 16px;
 `
 
-const Tags = () => {
-  const {tags, setTags} = useTags();
+const Tags:React.FC = () => {
+  const {tags} = useTags();
   return (
     <Layout>
       <TagList>
         {tags.map(tag =>
           <li key={tag}>
-            <span className="oneLine">{tag}</span>
-            <Icon name="right"/>
+            <Link to={`/tags/${tag}`}>
+              <span className="oneLine">{tag}</span>
+              <Icon name="right"/>
+            </Link>
           </li>
         )}
       </TagList>
@@ -61,4 +67,4 @@ const Tags = () => {
   );
 };
 
-export default Tags;
+export {Tags};
