@@ -40,3 +40,8 @@ button{
   display: block;
   clear: both;
 }
+.oneLine {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
