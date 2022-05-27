@@ -9,9 +9,11 @@ const defaultTags = [
 //封装一个自定义Hook
 const useTags = () =>{
   const [tags, setTags] = useState<{id:number,name:string}[]>(defaultTags)
+  const findTag = (id:string) => tags.filter(tag=>tag.id===parseInt(id))[0]
   return {
     tags,
-    setTags
+    setTags,
+    findTag
   }
 }
 
