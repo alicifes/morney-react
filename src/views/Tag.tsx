@@ -23,15 +23,36 @@ const InputWrapper = styled.div`
   background: white;
   padding: 0 16px;
   margin-top: 8px;
-`
+`;
 
 type Params = {
   id: string
 }
 const Tag: React.FC = (props) => {
-  const {id:idString} = useParams<Params>();
-  const {findTag,updateTag} = useTags();
+  const {id: idString} = useParams<Params>();
+  const {findTag, updateTag, deleteTag} = useTags();
   const tag = findTag(parseInt(idString));
+  const tagContent = (tag:{id:number,name:string}) => {
+    return (
+      <div>
+        <InputWrapper>
+          <Input label="标签名" type="text" placeholder="标签名" value={tag.name}
+                 onChange={(e) => {
+                   console.log(e.target.value);
+                   updateTag(tag.id, {name: e.target.value});
+                 }}/>
+        </InputWrapper>
+        <Space/>
+        <Space/>
+        <Space/>
+        <Center>
+          <Button onClick={() => {deleteTag(tag.id);}}>删除标签</Button>
+        </Center>
+      </div>
+    );
+  };
+
+
   return (
     <Layout>
       <Topbar>
@@ -39,19 +60,7 @@ const Tag: React.FC = (props) => {
         <span>编缉标签</span>
         <Icon name=""/>
       </Topbar>
-      <InputWrapper>
-        <Input label="标签名" type="text" placeholder="标签名" value={tag.name}
-               onChange={(e)=>{
-                 console.log(e.target.value);
-                 updateTag(tag.id,{name:e.target.value})
-               }}/>
-      </InputWrapper>
-      <Space />
-      <Space />
-      <Space />
-      <Center>
-        <Button>删除标签</Button>
-      </Center>
+      {tag ? tagContent(tag) : <div><Center>这里没有内容了</Center></div>}
     </Layout>
   );
 };
