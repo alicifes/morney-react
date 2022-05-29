@@ -33,8 +33,7 @@ body{
   height: 1em;
 }
 button,input{
-  font-family: inherit;
-  font-size: inherit;
+  font: inherit;
 }
 .clearfix::after{
   content: "";
