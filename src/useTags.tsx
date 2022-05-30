@@ -21,16 +21,18 @@ const useTags = () => {
     return result;
   };
   const updateTag = (id: number, obj: { name: string }) => {
-    const tagClone = JSON.parse(JSON.stringify(tags));
-    const index = findTagIndex(id);
-    tagClone.splice(index, 1, {id, name: obj.name});
-    setTags(tagClone);
+    // const tagClone = JSON.parse(JSON.stringify(tags));
+    // const index = findTagIndex(id);
+    // tagClone.splice(index, 1, {id, name: obj.name});
+    // setTags(tagClone);
+    setTags(tags.map(tag=> tag.id===id?{id,name:obj.name}:tag))
   };
-  const deleteTag = (id:number)=>{
-    const tagClone = JSON.parse(JSON.stringify(tags));
-    const index = findTagIndex(id);
-    tagClone.splice(index, 1);
-    setTags(tagClone)
+  const deleteTag = (id: number) => {
+    // const tagClone = JSON.parse(JSON.stringify(tags));
+    // const index = findTagIndex(id);
+    // tagClone.splice(index, 1);
+    // setTags(tagClone)
+    setTags(tags.filter(tag => tag.id !== id));
   };
 
 

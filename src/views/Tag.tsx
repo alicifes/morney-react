@@ -38,7 +38,6 @@ const Tag: React.FC = (props) => {
         <InputWrapper>
           <Input label="标签名" type="text" placeholder="标签名" value={tag.name}
                  onChange={(e) => {
-                   console.log(e.target.value);
                    updateTag(tag.id, {name: e.target.value});
                  }}/>
         </InputWrapper>
