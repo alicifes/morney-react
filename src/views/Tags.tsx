@@ -18,18 +18,18 @@ const TagList = styled.ol`
     line-height: 20px;
     margin-left: 16px;
     border-bottom: 1px solid #bcbbc1;
-    >a{
+
+    > a {
       display: flex;
       justify-content: space-between;
-      align-items: center;  
+      align-items: center;
     }
   }
 `;
 
 
-
-const Tags:React.FC = () => {
-  const {tags} = useTags();
+const Tags: React.FC = () => {
+  const {tags, addTag} = useTags();
   return (
     <Layout>
       <TagList>
@@ -42,11 +42,11 @@ const Tags:React.FC = () => {
           </li>
         )}
       </TagList>
-      <Space />
-      <Space />
-      <Space />
+      <Space/>
+      <Space/>
+      <Space/>
       <Center>
-        <Button>新建标签</Button>
+        <Button onClick={addTag}>新建标签</Button>
       </Center>
     </Layout>
   );

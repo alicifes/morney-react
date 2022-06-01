@@ -45,14 +45,8 @@ type Props = {
 
 const TagSection: React.FC<Props> = (props) => {
   //这里可以使用自定义hooks
-  const {tags, setTags} = useTags();
+  const {tags,addTag} = useTags();
   const selectedTagIds = props.value;
-  const onAddTag = () => {
-    const tagName = window.prompt('请输入您想添加的标签');
-    if (tagName !== null) {
-      setTags([...tags, {id:createId(),name:tagName}]);
-    }
-  };
   const onToggleTag = (tagId: number) => {
     if (selectedTagIds.indexOf(tagId) >= 0) {
       props.onChange(selectedTagIds.filter(item => item !== tagId));
@@ -70,7 +64,7 @@ const TagSection: React.FC<Props> = (props) => {
             className={selectedTagIds.indexOf(tag.id) >= 0 ? 'selected' : ''}>{tag.name}</li>
       )}
     </ol>
-    <button onClick={onAddTag}>添加标签</button>
+    <button onClick={addTag}>添加标签</button>
   </Wrapper>;
 };
 

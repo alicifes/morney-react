@@ -7,7 +7,7 @@ import {Button} from 'components/Button';
 import styled from 'styled-components';
 import {Input} from 'components/Input';
 import {Center} from 'components/Center';
-import {Space} from '../components/Space';
+import {Space} from 'components/Space';
 
 
 const Topbar = styled.header`
