@@ -1,5 +1,5 @@
 import React from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams,useHistory} from 'react-router-dom';
 import {useTags} from 'useTags';
 import Layout from 'components/Layout';
 import Icon from 'components/Icon';
@@ -32,7 +32,7 @@ const Tag: React.FC = (props) => {
   const {id: idString} = useParams<Params>();
   const {findTag, updateTag, deleteTag} = useTags();
   const tag = findTag(parseInt(idString));
-  const tagContent = (tag:{id:number,name:string}) => {
+  const tagContent = (tag: { id: number, name: string }) => {
     return (
       <div>
         <InputWrapper>
@@ -51,10 +51,16 @@ const Tag: React.FC = (props) => {
     );
   };
 
+  const history = useHistory();
+  const onClickBack = ()=>{
+    //使用react自带的api
+    history.goBack();
+    //window.history.back();
+  }
   return (
     <Layout>
       <Topbar>
-        <Icon name="left"/>
+        <Icon name="left" onClick={onClickBack}/>
         <span>编缉标签</span>
         <Icon name=""/>
       </Topbar>

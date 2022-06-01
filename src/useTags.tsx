@@ -35,7 +35,6 @@ const useTags = () => {
     setTags(tags.filter(tag => tag.id !== id));
   };
 
-
   return {
     tags,
     setTags,
