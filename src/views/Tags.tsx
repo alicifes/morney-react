@@ -8,7 +8,6 @@ import {Button} from 'components/Button';
 import {Center} from 'components/Center';
 import {Space} from 'components/Space';
 
-
 const TagList = styled.ol`
   background: white;
   font-size: 16px;
@@ -26,7 +25,6 @@ const TagList = styled.ol`
     }
   }
 `;
-
 
 const Tags: React.FC = () => {
   const {tags, addTag} = useTags();
