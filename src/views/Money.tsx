@@ -31,13 +31,14 @@ const Money = () => {
       ...obj
     });
   };
-const {records,addRecord} = useRecords()
+const {records,addRecord} = useRecords();
 
 
   const submit = () => {
-    addRecord(selected)
-    alert("添加成功")
-    setSelected(defaultFormData)
+    if( addRecord(selected)){
+      alert("添加成功")
+      setSelected(defaultFormData)
+    }
   };
   return (
     <MyLayout>
