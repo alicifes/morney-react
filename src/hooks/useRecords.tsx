@@ -1,12 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import {useUpdate} from './useUpdate';
 
-type RecordItem = {
+type newRecordItem = {
   tagIds: number[],
   note: string,
   category: '+' | '-',
-  amount: number
+  amount: number,
 }
+
+type RecordItem =newRecordItem & {
+  createdAt:string
+}
+
+//这里的写法是忽略ReactedItem里面的createdAt属性
+//type newRecordItem = Omit<RecordItem, createdAt>
+
 
 const useRecords = () => {
   const [records, setRecords] = useState<RecordItem[]>([]);
@@ -19,8 +27,9 @@ const useRecords = () => {
    window.localStorage.setItem('records',JSON.stringify(records))
   },[records])
 
-  const addRecord = (selected: RecordItem) => {
-    setRecords([...records, selected]);
+  const addRecord = (newRecord: newRecordItem) => {
+    const record = {...newRecord,createdAt:(new Date()).toISOString()}
+    setRecords([...records, record]);
   };
   return {records,addRecord};
 };
