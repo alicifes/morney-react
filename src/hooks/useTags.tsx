@@ -53,6 +53,9 @@ const useTags = () => {
     // setTags(tagClone)
     setTags(tags.filter(tag => tag.id !== id));
   };
+  const getName = (id:number)=>{
+    return tags.filter(tag=>tag.id===id)[0].name
+  }
 
   return {
     tags,
@@ -61,7 +64,8 @@ const useTags = () => {
     findTag,
     updateTag,
     findTagIndex,
-    deleteTag
+    deleteTag,
+    getName
   };
 };
 

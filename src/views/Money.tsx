@@ -11,6 +11,9 @@ const MyLayout = styled(Layout)`
   display: flex;
   flex-direction: column;
 `;
+const CategoryWrapper = styled.div`
+  background: #C4C4C4;
+`;
 
 type Category = '+' | '-'
 
@@ -19,7 +22,7 @@ const defaultFormData = {
   note: '',
   category: '-' as Category,
   amount: 0
-}
+};
 const Money = () => {
   const [selected, setSelected] = useState(defaultFormData);
 
@@ -31,21 +34,23 @@ const Money = () => {
       ...obj
     });
   };
-const {records,addRecord} = useRecords();
+  const {records, addRecord} = useRecords();
 
 
   const submit = () => {
-    if( addRecord(selected)){
-      alert("添加成功")
-      setSelected(defaultFormData)
+    if (addRecord(selected)) {
+      alert('添加成功');
+      setSelected(defaultFormData);
     }
   };
   return (
     <MyLayout>
       <TagSection value={selected.tagIds} onChange={tagIds => onChange({tagIds})}/>
       <NoteSection value={selected.note} onChange={note => onChange({note})}/>
-      <CategorySection value={selected.category} onChange={category => onChange({category})}/>
-      <NumberPadSection value={selected.amount} onChange={amount => onChange({amount})} onOk={() => {submit()}}/>
+      <CategoryWrapper>
+        <CategorySection value={selected.category} onChange={category => onChange({category})}/>
+      </CategoryWrapper>
+      <NumberPadSection value={selected.amount} onChange={amount => onChange({amount})} onOk={() => {submit();}}/>
     </MyLayout>
   );
 };

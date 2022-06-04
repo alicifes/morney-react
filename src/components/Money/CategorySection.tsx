@@ -5,7 +5,6 @@ const Wrapper = styled.section`
   > ol {
     display: flex;
     font-size: 24px;
-    background: #C4C4C4;
 
     > li {
       text-align: center;
