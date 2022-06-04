@@ -10,6 +10,19 @@ import dayjs from 'dayjs';
 const CategoryWrapper = styled.div`
   background: white;
 `;
+const Item = styled.div`
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  font-size: 18px;
+  line-height: 20px;
+  padding: 10px 16px;
+  >.note{
+    margin-right: auto;
+    margin-left: 16px;
+    color: #999;
+  }
+`
 
 
 const Statistics = () => {
@@ -23,13 +36,18 @@ const Statistics = () => {
       </CategoryWrapper>
       <div>
         {records.map(r => {
-          return <div>
-            { r.tagIds.map(tagId => <span>{getName(tagId)}</span>)}
-            <hr/>
-            {r.amount}
-            <hr/>
-            {dayjs(r.createdAt).format('YYYY年MM月DD日')}
-          </div>
+          return <Item>
+            <div className="tags">
+              { r.tagIds.map(tagId => <span>{getName(tagId)}</span>)}
+            </div>
+            <div className="note">
+              {r.note}
+            </div>
+            <div className="amount">
+              ¥{r.amount}
+            </div>
+            {/*{dayjs(r.createdAt).format('YYYY年MM月DD日')}*/}
+          </Item>
         })}
       </div>
     </Layout>

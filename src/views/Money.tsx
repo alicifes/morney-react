@@ -34,7 +34,7 @@ const Money = () => {
       ...obj
     });
   };
-  const {records, addRecord} = useRecords();
+  const {addRecord} = useRecords();
 
 
   const submit = () => {
