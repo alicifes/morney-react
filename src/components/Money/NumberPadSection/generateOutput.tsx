@@ -10,15 +10,14 @@ const generateOutput = (text:string,output = '0') => {
     case '8':
     case '9':
     case '0':
+      if(output==='0'){
+        return text
+      }else {
+        return output+text
+      }
     case '.':
-      if (text === '.' && (output.indexOf('.') >= 0 || output === '0')) {
-        return output
-      }
-      if (output === '0') {
-        return text;
-      } else {
-        return output + text;
-      }
+      if(output.indexOf('.')>=0){return output}
+      return output+'.'
     case '删除':
       if (output.length === 1) {
         return '0';
